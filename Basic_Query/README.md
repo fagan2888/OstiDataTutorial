@@ -6,7 +6,7 @@ Once you understand how to construct the URL, you may want to try out the Python
 
 ##Sample search: 
 
-Copy and paste the following link into a browser. You'll see a bunch of XML in your browser: this is the metadata for this particular set of OSTI reports. 
+Copy and paste the following link into a new browser tab or window. You'll see a bunch of XML appear in your browser: this is the metadata for this particular set of OSTI reports, which you can use for creating new MARC records or updating current ones (more on that later). 
 
 <http://www.osti.gov/scitech/scitechxml?Biblio=oak%20AND%20ridge&Identifier=AECD*&FullTextMatch=1&nrows=3000&page=0>
 
@@ -25,7 +25,7 @@ Here, you're telling OSTI's XML serivce that you'd like to query all of the avai
 
 `oak%20AND%20ridge`
 
-Now, I'm adding specific (actual) keywords to my `Biblio` query. Since you're constructing this in a browser, your keywords can't have spaces; thus, %20 needs to be present in lieu of an empty space. Their query service also supports Boolean searching (e.g. `oak AND ridge` becomes `oak%20AND%20ridge`, but I could just have easily written 'oak%20**OR**%20ridge' as well as 'oak%20**NOT**%20ridge`). 
+Now, I'm adding specific (actual) keywords to my `Biblio` query. Since you're constructing this in a browser, your keywords can't have spaces; thus, %20 needs to be present in lieu of an empty space. Their query service also supports Boolean searching (e.g. `oak AND ridge` becomes `oak%20AND%20ridge`, but I could just have easily written `oak%20**OR**%20ridge` as well as `oak%20**NOT**%20ridge`). 
 
 `&`
 
@@ -35,10 +35,16 @@ This is an important little character. This is how you chain together all of you
 
 You aren't limited to selecting just one *Criteria Keyword*. You can chain together a query with as many *Criteria Keywords* as you like. In this case, I've added the `Identifier` *Criteria Keyword* to my query so that I can ask for records with a specific unique identifier.  
 
-`AECD*&`
+`AECD*`
 
+I'm interested in all unique identifiers that start with AECD (e.g. AECD-123, AECD\123, AECD-CR-123, etc.). OSTI's XML service supports wildcards, hence the `*` after my query. 
 
+`&FullTextMatch=1`
 
-`FullTextMatch=1&`
+First, make note of the `&` at the beginning of this parameter. 
 
-`nrows=3000&page=0`
+Here I've indicated that I'm only interested in full text items. 1 = yes, 0 = no. 
+
+`&nrows=3000&page=0`
+
+It's possible to place limits on the number of results returned. The maximum is 3000 per page (with an unlimited number of pages). 
