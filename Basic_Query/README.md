@@ -52,4 +52,5 @@ Here I've indicated that I'm only interested in full text items. 1 = yes, 0 = no
 There's the `&` again! Before both parameters!
 
 It's possible to place limits on the number of results returned. The maximum is 3000 rows per page (with an unlimited number of pages). If your search returns a massive data set, this will be important, as you'll want to page through all results. Something to be aware of: computers start counting at 0. So, the first page of results will always be `page=0`. 
-![xml]:(OstiDataTutorial/Basic_Query/xml.JPG)
+
+![xml](OstiDataTutorial/Basic_Query/xml.JPG)
