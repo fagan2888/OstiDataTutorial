@@ -1,6 +1,6 @@
 # Basic Query
 
-It's fairly simple to to use the OSTI XML service, as it's just a matter of constructing a URL in a browser. After the query returns all relevant metadata, you can then add a file type to that query (end of the URL) and download your data directly to your computer for further manipulation. 
+If you can construct a URL, you can use the OSTI XML service; it's just a matter of knowing how to structure the query. After the query returns all relevant metadata, you can then add a file type to that query (end of the URL) and download your data directly to your computer for further manipulation. 
 
 Once you understand how to construct the URL, you may want to try out the Python section of this tutorial, where you can assign parts of the URL to variables and, potentially, incorporate this into your ILS or other automated workflows. 
 
@@ -52,3 +52,4 @@ Here I've indicated that I'm only interested in full text items. 1 = yes, 0 = no
 There's the `&` again! Before both parameters!
 
 It's possible to place limits on the number of results returned. The maximum is 3000 rows per page (with an unlimited number of pages). If your search returns a massive data set, this will be important, as you'll want to page through all results. Something to be aware of: computers start counting at 0. So, the first page of results will always be `page=0`. 
+![xml]:(OstiDataTutorial/Basic_Query/xml.JPG)
