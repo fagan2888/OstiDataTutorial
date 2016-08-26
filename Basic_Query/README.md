@@ -25,7 +25,7 @@ Here, you're telling OSTI's XML serivce that you'd like to query all of the avai
 
 `oak%20AND%20ridge`
 
-Now, I'm adding specific (actual) keywords to my `Biblio` query. Since you're constructing this in a browser, your keywords can't have spaces; thus, %20 needs to be present in lieu of an empty space. Their query service also supports Boolean searching (e.g. `oak AND ridge` becomes `oak%20AND%20ridge`, but I could just have easily written `oak%20**OR**%20ridge` as well as `oak%20**NOT**%20ridge`). 
+Now, I'm adding specific (actual) keywords to my `Biblio` query. Since you're constructing this in a browser, your keywords can't have spaces; thus, %20 needs to be present in lieu of an empty space. Their query service also supports Boolean searching (e.g. `oak AND ridge` becomes `oak%20AND%20ridge`, but I could just have easily written `oak%20`**OR**`%20ridge` as well as `oak%20`**NOT**`%20ridge`). 
 
 `&`
 
@@ -45,6 +45,10 @@ First, make note of the `&` at the beginning of this parameter.
 
 Here I've indicated that I'm only interested in full text items. 1 = yes, 0 = no. 
 
-`&nrows=3000&page=0`
+`&nrows=3000`
 
-It's possible to place limits on the number of results returned. The maximum is 3000 per page (with an unlimited number of pages). 
+`&page=0`
+
+There's the `&` again! Before both parameters!
+
+It's possible to place limits on the number of results returned. The maximum is 3000 rows per page (with an unlimited number of pages). If your search returns a massive data set, this will be important, as you'll want to page through all results. Something to be aware of: computers start counting at 0. So, the first page of results will always be `page=0`. 
