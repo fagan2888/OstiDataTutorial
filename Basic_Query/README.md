@@ -54,3 +54,5 @@ There's the `&` again! Before both parameters!
 It's possible to place limits on the number of results returned. The maximum is 3000 rows per page (with an unlimited number of pages). If your search returns a massive data set, this will be important, as you'll want to page through all results. Something to be aware of: computers start counting at 0. So, the first page of results will always be `page=0`. 
 
 ![xml](https://cloud.githubusercontent.com/assets/15846812/18014605/b0084cd4-6b91-11e6-9f17-a7b92a7f7303.JPG)
+
+Here, you can see that the XML service has returned 12490 records. So, to page through these results (with a max of 3000 rows per page), you would change the `page=` parameter to `page=1`, `page=2`, and so on. 
