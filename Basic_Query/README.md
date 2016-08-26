@@ -53,4 +53,4 @@ There's the `&` again! Before both parameters!
 
 It's possible to place limits on the number of results returned. The maximum is 3000 rows per page (with an unlimited number of pages). If your search returns a massive data set, this will be important, as you'll want to page through all results. Something to be aware of: computers start counting at 0. So, the first page of results will always be `page=0`. 
 
-![xml](OstiDataTutorial/Basic_Query/xml.JPG)
+![xml](https://cloud.githubusercontent.com/assets/15846812/18014605/b0084cd4-6b91-11e6-9f17-a7b92a7f7303.JPG)
