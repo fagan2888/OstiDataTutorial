@@ -1,5 +1,5 @@
 # OstiDataTutorial
-This is a tutorial for extracting metadata from OSTI's XML service, cleaning it, incorporating it into catalog records.
+This is a tutorial for extracting metadata from OSTI's XML service, cleaning it, and either creating new records or using the metadata to enhance your current records. 
 
 ##Why have you created this?
 
@@ -7,10 +7,12 @@ OSTI does provide a [MARC record download service](https://www.osti.gov/home/mar
 
 ##Do I need to know XML to do this? 
 
-Not necessarily. I've provided some sample code for parsing XML with Python, but also will provide an alternative means of gathering and manipulating the data by searching the XML service either using Python or directly, and then downloading and manipulating a csv file. 
+Not necessarily. I've provided some sample code for searching and parsing OSTI's XML service using Python scripts, but also will provide an alternative means of gathering and manipulating the data by searching the XML service either directly, and then downloading and manipulating a csv file. 
 
 ##What do I need to know?
 
-A portion of this tutorial expects you to have Python 2.7 on your computer, and a very rudimentary understanding of the command line (examples will be provided). However, the tutorial will begin with a basic explanation of the XML service, how to query it directly, and how to download a csv file (i.e. spreadsheet).
+A portion of this tutorial expects you to have Python 2.7 on your computer, as well as a very rudimentary understanding of the command line (examples will be provided). However, the tutorial also includes a basic explanation of the XML service, how to query it directly, and how to download a csv file (i.e. spreadsheet).
+
+Choose the "Basic_Query" folder or "Python" folder to get started. 
 
 
