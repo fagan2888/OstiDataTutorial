@@ -1,5 +1,4 @@
 import requests
-from xml.etree import ElementTree
 from lxml import etree
 import csv
 import pymarc
