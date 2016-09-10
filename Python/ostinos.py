@@ -5,7 +5,7 @@ import pymarc
 from pymarc import Record, Field
 
 
-def getRecs(self):
+def getRecs():
 	for node in osti:
 		if node.tag == dc + 'title':
 			title = node.text
@@ -39,7 +39,7 @@ def getRecs(self):
 			continue
 	data.writerow([title, author, date, sub, description, ostiId, doi, reportNumber, doeNumber, ostiUrl])
 
-def getMarc(self):
+def getMarc():
 	
 	for node in osti:
 		if node.tag == dc + 'ostiId':
