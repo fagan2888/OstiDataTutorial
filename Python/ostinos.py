@@ -5,7 +5,7 @@ import pymarc
 from pymarc import Record, Field
 
 
-def getRecs():
+def getRecs(osti, data): # Passed osti and data into function instead of calling globally.
 	for node in osti:
 		if node.tag == dc + 'title':
 			title = node.text
@@ -39,7 +39,7 @@ def getRecs():
 			continue
 	data.writerow([title, author, date, sub, description, ostiId, doi, reportNumber, doeNumber, ostiUrl])
 
-def getMarc():
+def getMarc(osti, marc):  # Passed osti and marc into function instead of calling globally.
 	
 	for node in osti:
 		if node.tag == dc + 'ostiId':
@@ -68,7 +68,7 @@ data = csv.writer(out)
 data.writerow(['Title', 'Author', 'Date', 'Subjects', 'Description', 'OstiID', 'DOI', 'Report Number', 'DOE Number', 'URL', ''])
 
 marcOut = open('ostimarc.mrc', 'w')
-marc = Record()
+#marc = Record()
 
 dc = '{http://purl.org/dc/elements/1.1/}'
 dcq = '{http://purl.org/dc/terms/}'
@@ -76,7 +76,7 @@ dcq = '{http://purl.org/dc/terms/}'
 
 for number in csv_f:
 	ostiId = number[0]
-	
+	marc = Record() # Create a new record for each loop.
 	results = requests.get('http://www.osti.gov/scitech/scitechxml?Identifier=' + ostiId)
 	tree = etree.fromstring(results.content)
 	for node in tree.iter():
@@ -84,8 +84,8 @@ for number in csv_f:
 			if node.text == ostiId:
 				o = node.getparent()
 				osti = o.getchildren()
-				getRecs(osti)
-				getMarc(osti)
+				getRecs(osti, data)
+				getMarc(osti, marc)
 				continue
 
-marcOut.write(marc.as_marc())
+	marcOut.write(marc.as_marc()) # Write each new record.
