@@ -36,7 +36,6 @@ def getRecs(osti, data): # Passed osti and data into function instead of calling
 			continue
 		if node.tag == dcq + 'identifier-citation':
 			ostiUrl = node.text
-			continue
 	data.writerow([title, author, date, sub, description, ostiId, doi, reportNumber, doeNumber, ostiUrl])
 
 def getMarc(osti, marc):  # Passed osti and marc into function instead of calling globally.
@@ -53,8 +52,7 @@ def getMarc(osti, marc):  # Passed osti and marc into function instead of callin
 			continue
 		if node.tag == dc + 'creator':
 			creator = Field(tag = '700', indicators = ['1', ' '], subfields = ['a', node.text,])
-			continue
-		
+
 	marc.add_field(ostiNum, repId, title, creator)
 
 
@@ -86,6 +84,5 @@ for number in csv_f:
 				osti = o.getchildren()
 				getRecs(osti, data)
 				getMarc(osti, marc)
-				continue
 
 	marcOut.write(marc.as_marc()) # Write each new record.
