@@ -66,7 +66,6 @@ data = csv.writer(out)
 data.writerow(['Title', 'Author', 'Date', 'Subjects', 'Description', 'OstiID', 'DOI', 'Report Number', 'DOE Number', 'URL', ''])
 
 marcOut = open('ostimarc.mrc', 'w')
-#marc = Record()
 
 dc = '{http://purl.org/dc/elements/1.1/}'
 dcq = '{http://purl.org/dc/terms/}'
@@ -75,8 +74,7 @@ dcq = '{http://purl.org/dc/terms/}'
 for number in csv_f:
 	ostiId = number[0]
 	marc = Record() # Create a new record for each loop.
-	results = requests.get('http://www.osti.gov/scitech/scitechxml?Identifier=' + ostiId)
-	tree = etree.fromstring(results.content)
+	tree = etree.parse('http://www.osti.gov/scitech/scitechxml?Identifier='+ ostiId+ '.xml')
 	for node in tree.iter():
 		if node.tag == dc + 'ostiId':
 			if node.text == ostiId:
